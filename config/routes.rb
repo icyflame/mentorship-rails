@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
+  get 'mentor/index'
+
+  get 'mentor/show'
+
+  get 'student/index'
+
+  get 'student/show'
+
   devise_for :students
   devise_for :mentors
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  resources :student
+  resources :mentor
+
+  root 'student#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
