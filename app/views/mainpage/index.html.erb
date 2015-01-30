@@ -1,29 +1,184 @@
-<h1>Mainpage</h1>
-<p>There will be links to all the required links in the website.</p>
+ 
+<style type="text/css">
+body{
+	background-image: url(/assets/images/banner7.jpg) !important;
+}
 
-<h2>Generic Login Form</h2>
+.navbar a{
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
 
-<%= form_tag("/loginperson", method: "post") do %>
+.navbar a:hover{
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
 
-<%= text_field_tag(:email, "", :placeholder => "Email ID") %>
+#logo
+{
+	margin: 0 0 0 0 ;
+	padding: 0 0 0 0 ;
 
-<%= password_field_tag(:password, "", :placeholder => "Password") %>
+}
 
-<%= submit_tag("Login", :class => "btn btn-success") %>
+/*#home
+{
+	position: relative;
+	margin-top: 8%; 
+	padding-left: 3%;
+	padding-right: 3%; 
 
-<% end %>
+	}*/
 
-<% if student_signed_in? %>
+	#register
+	{
+		padding: 0 0 10px 0;
+		width: 100%;
+	}
 
-<p> Student is signed in </p>
-<%= link_to "Signout", destroy_student_session_path, method: :delete %>
+	#register-btn
+	{
+		width: 100%;
+		line-height: 40px;
+		font-size: 20px;
+		color:black;
+		border-color: black;
 
-<% end %>
+	}
 
-<% if mentor_signed_in? %>
+	#register-form
+	{
+		position: relative;
+		top: -20px;
+	}
 
-<p> Mentor is signed in </p>
-<%= link_to "Signout", destroy_mentor_session_path, method: :delete %>
+	.logo{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 
-<% end %>
+	.white{
+		color: white;
+	}
 
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">SAMP</a>
+				</div>
+
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+
+						<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+						<li><a href="#">SAC</a></li>
+						<li><a href="#">Testimonials</a></li>
+						<li><a href="#">Contact us</a></li>
+
+					</ul>
+
+					<% if not student_signed_in? and not mentor_signed_in? %>
+
+					<%= form_tag("/loginperson", method: "post", :class => "navbar-form navbar-right") do %>
+
+					<%= text_field_tag(:email, "", :placeholder => "Email ID", :class => "form-control") %>
+
+					<%= password_field_tag(:password, "", :placeholder => "Password", :class => "form-control") %>
+
+					<%= submit_tag("Login", :class => "btn btn-success") %>
+
+					<% end %>
+
+					<% end %>
+
+					<ul class="nav navbar-nav navbar-right">
+
+						<% if student_signed_in? %>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_student.name %> <span class="label label-success">Student</span> <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">ss
+								<li><a href="<%= student_path(current_student.id) %>">Profile</a></li>
+
+								<li class="divider"></li>
+
+								<li><%= link_to "Signout", destroy_mentor_session_path, method: :delete %></li>
+
+							</ul>
+						</li>
+
+						<% end %>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div  id="home">
+			<div class="row">
+				<div class="col-md-4" >
+					<div style="position:relative">
+						<img src="/assets/images/sac-logo.png" height="120px">
+					</div>
+					<div id="register-form" class="center">
+						<h2 style="color: white; font-size:25px">
+							Register Here (not working)
+						</h2>
+						<br/>
+						<div class="input-group input-group-lg" id="register">
+
+							<input type="text" class="form-control" placeholder="Enter your full name" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
+						</div>
+
+						<div class="input-group input-group-lg" id="register">
+
+							<input type="text" class="form-control" placeholder="Enter your email ID" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
+						</div>
+						<div class="input-group input-group-lg" id="register">
+
+							<input type="password" class="form-control" placeholder="Password" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
+						</div>
+
+						<hr/>
+
+						<a href="<%= new_mentor_registration_path %>">
+
+							<button type="button" class="btn btn-lg btn-success">I want to be a Mentor
+							</button>
+
+						</a>
+
+						<hr/>
+
+						<a href="<%= new_mentor_registration_path %>">
+
+							<button type="button" class="btn btn-info btn-lg">I am a Student
+							</button>
+						</a>
+					</div>
+				</div>
+
+
+
+				<div class="col-md-8" style="padding-top:14px">
+					<img src="/assets/images/det_pic.jpg" style="width: 100%; ">
+				</div>
+			</div>
+		</div>
+	</body>
