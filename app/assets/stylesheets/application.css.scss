@@ -23,10 +23,10 @@ html, body{
 	margin-top: 20px;
 }
  
-form input, textarea{
+input, textarea{
 	@extend .form-control;
-	margin-top: 10px; 
-	margin-bottom: 10px; 
+	/*margin-top: 10px; */
+	/*margin-bottom: 10px; */
 }
 
 .center{
