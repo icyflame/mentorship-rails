@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   post '/loginperson' => 'mainpage#loginperson'
 
+  get '/mainpage/test'
+  get 'mainpage/status'
+
   root 'mainpage#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

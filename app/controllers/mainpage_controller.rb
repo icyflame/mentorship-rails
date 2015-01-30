@@ -2,6 +2,9 @@ class MainpageController < ApplicationController
 	def index
 	end
 
+	def test
+	end
+
 	def loginperson
   	# render plain: params.inspect()
 
