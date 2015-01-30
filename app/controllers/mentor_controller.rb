@@ -4,11 +4,11 @@ class MentorController < ApplicationController
 
 	def show
 		if mentor_signed_in?
-			if current_mentor.id == params[:id]
-				redirect_to root_path
+			if current_mentor.id.to_i == params[:id].to_i
+				render plain: "You don't have privileges to view this page."
 			end
 		else
-			redirect_to root_path
+			render plain: "You don't have privileges to view this page."
 		end
 	end
 end
