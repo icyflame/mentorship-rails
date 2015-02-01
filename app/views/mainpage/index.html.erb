@@ -97,7 +97,7 @@ body{
 
 					<%= form_tag("/loginperson", method: "post", :class => "navbar-form navbar-right") do %>
 
-					<%= text_field_tag(:email, "", :placeholder => "Email ID", :class => "form-control") %>
+					<%= email_field_tag(:email, "", :placeholder => "Email ID", :class => "form-control") %>
 
 					<%= password_field_tag(:password, "", :placeholder => "Password", :class => "form-control") %>
 
@@ -138,47 +138,69 @@ body{
 					</div>
 					<div id="register-form" class="center">
 						<h2 style="color: white; font-size:25px">
-							Register Here (not working)
+							Register Now
 						</h2>
 						<br/>
-						<div class="input-group input-group-lg" id="register">
 
-							<input type="text" class="form-control" placeholder="Enter your full name" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
-						</div>
+						<%= form_tag("/registerperson", method: "post") do %>
 
-						<div class="input-group input-group-lg" id="register">
+						<%= text_field_tag(:name, "", :placeholder => "Enter your full name", onchange: " $('#mentor_name').attr('value', $(this).val());  $('#student_name').attr('value', $(this).val()); ") %> 
+						<br/>
 
-							<input type="text" class="form-control" placeholder="Enter your email ID" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
-						</div>
-						<div class="input-group input-group-lg" id="register">
+						<%= text_field_tag(:email, "", :placeholder => "Email ID", onchange: "$('#mentor_email').attr('value', $(this).val());  $('#student_email').attr('value', $(this).val()); ") %> 
+						<br/>
+						
+						<%= password_field_tag(:password, "", :placeholder => "Password", onchange: " $('#mentor_password').attr('value', $(this).val());  $('#student_password').attr('value', $(this).val()); ") %> 
+						<br/>
 
-							<input type="password" class="form-control" placeholder="Password" style="border-radius: 0px;border-color:black" aria-describedby="sizing-addon1">
-						</div>
-
-						<hr/>
-
-						<a href="<%= new_mentor_registration_path %>">
-
-							<button type="button" class="btn btn-lg btn-success">I want to be a Mentor
-							</button>
-
-						</a>
+						<% end %>
 
 						<hr/>
 
-						<a href="<%= new_mentor_registration_path %>">
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registermentor">
+							I want to be a Mentor
+						</button>
 
-							<button type="button" class="btn btn-info btn-lg">I am a Student
-							</button>
-						</a>
+						<hr/>
+
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerstudent">
+							I am a student
+						</button>
 					</div>
 				</div>
-
-
 
 				<div class="col-md-8" style="padding-top:14px">
 					<img src="/assets/images/det_pic.jpg" style="width: 100%; ">
 				</div>
 			</div>
 		</div>
+
+		<div class="modal fade" id="registermentor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Sign up as a Mentor </h4>
+					</div>
+					<div class="modal-body">
+						<%= render "mentors/registrations/register" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="registerstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Sign up as a Student </h4>
+					</div>
+					<div class="modal-body">
+						<%= render "students/registrations/register" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</body>
