@@ -1,0 +1,51 @@
+<%= form_for(:student, url: student_registration_path, method: :post) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roll_number %><br />
+    <%= f.text_field :rollnum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :department %><br />
+    <%= f.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hall %><br />
+    <%= f.text_field :hall %>
+  </div>
+
+  <div class="field">
+    <%= f.label :joining_year %><br />
+    <%= f.text_field :joinyear %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Sign up", :class => "btn btn-success" %>
+  </div>
+<% end %>
