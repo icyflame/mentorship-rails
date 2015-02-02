@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130174121) do
+ActiveRecord::Schema.define(version: 20150202115424) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -64,6 +64,10 @@ ActiveRecord::Schema.define(version: 20150130174121) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "designation"
+    t.string   "firm"
+    t.string   "phone"
+    t.string   "skypename"
   end
 
   add_index "mentors", ["email"], name: "index_mentors_on_email", unique: true
