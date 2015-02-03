@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202115424) do
+ActiveRecord::Schema.define(version: 20150203152533) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -95,5 +95,15 @@ ActiveRecord::Schema.define(version: 20150202115424) do
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+
+  create_table "tie_mentor_with_mentees", force: true do |t|
+    t.integer  "mentor_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tie_mentor_with_mentees", ["mentor_id"], name: "index_tie_mentor_with_mentees_on_mentor_id"
+  add_index "tie_mentor_with_mentees", ["student_id"], name: "index_tie_mentor_with_mentees_on_student_id"
 
 end
