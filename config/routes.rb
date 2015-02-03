@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'static_pages/sac'
+
+  get 'static_pages/contact'
+
+  get 'static_pages/testimonial'
+
   get 'mainpage/index'
 
   get 'mentor/index'

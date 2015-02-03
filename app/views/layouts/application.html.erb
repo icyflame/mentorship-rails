@@ -26,9 +26,9 @@
 				<ul class="nav navbar-nav">
 
 					<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">SAC</a></li>
-					<li><a href="#">Testimonials</a></li>
-					<li><a href="#">Contact us</a></li>
+					<li><a href="/static_pages/sac">SAC</a></li>
+					<li><a href="/static_pages/testimonial">Testimonials</a></li>
+					<li><a href="/static_pages/contact">Contact us</a></li>
 
 				</ul>
 
@@ -68,7 +68,7 @@
 					<% if mentor_signed_in? %>
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_mentor.name %> <span class="label label-success">Mentor</span> <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_mentor.name %> <span class="label label-primary">Mentor</span> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="<%= mentor_path(current_mentor.id) %>">Profile</a></li>
 							<li><a href="/mentors/edit">Edit Profile</a></li>
