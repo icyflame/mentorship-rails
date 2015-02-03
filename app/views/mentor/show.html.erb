@@ -5,11 +5,23 @@
 	<div class="col-md-9">
 		<ul class="nav nav-pills nav-justified" role="tablist">
 			<li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge">42</span></a></li>
-			<li role="presentation"><a href="#" style="color:black">My Profile</a></li>
 			<li role="presentation"><a href="#" style="color:black">My Messages<span class="badge">3</span></a></li>
 		</ul>
 		<div style="margin:30px 0px 5px 0px">
-			<h3 >Feel Free to get in touch with your Mentor</h3>
+
+			<% if not @mentees.length == 0 %>
+
+			<select class="form-control">
+
+				<% @mentees.each do |tiementee| %>
+				<% mentee = Student.find(tiementee.student_id) %>
+				<option value="<%= mentee.id %>"><%= mentee.name %></option>
+				<% end %>
+
+			</select>
+
+			<br/>
+
 			<div class="form-group">
 				<input type="text" class="form-control " placeholder="Subject">
 			</div>
@@ -17,7 +29,9 @@
 				<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
 			</div>
 
-			<a href="#" class="btn btn-primary  btn-lg" id="send" role="button" style="border-color:black ">SEND</a>
+			<a href="#" class="btn btn-primary  btn-lg" id="send" role="button">SEND</a>
+
+			<% end %>
 		</div>
 
 		<div class="row" style="margin:5px 4px 5px 4px">
@@ -45,17 +59,25 @@
 
 	<div class="col-md-3">
 
+		<% if @mentees.length == 0 %>
+
+		<h1 class="center"> No mentees allotted yet! </h1>
+
+		<% else %>
+
 		<h1>List of Mentees</h1>
 
-		<h1 style="margin:5px 80px 5px 40px" >Mentor</h1>
-		<div style="margin:5px 80px 5px 40px">
-			<h2 ><%= @mentor.name %> </h2>
-			<h4><%= @mentor.firm %> </h4>
-			<h4>designation</h4>
-			<h4><%= @mentor.email %> </h4>
-			<h4><%= @mentor.phone %> </h4>
-			<h4><%= @mentor.department %> </h4>
-			<h4><%= @mentor.hall %> </h4>
-		</div>
+		<% @mentees.each do |tiementee| %>
+		<% mentee = Student.find(tiementee.student_id) %>
+
+		<h3><%= mentee.name %></h3>
+		<p><%= mentee.department %></p>
+		<p><%= mentee.hall %></p>
+		<p>Joined in <%= mentee.joinyear %></p>
+
+		<% end %>
+
+		<% end %>
+
 	</div>	
 </div>
