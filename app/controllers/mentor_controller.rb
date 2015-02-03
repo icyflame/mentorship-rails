@@ -7,6 +7,8 @@ class MentorController < ApplicationController
 
 		if not (mentor_signed_in? and (current_mentor.id.to_i == params[:id].to_i))
 			render plain: "You don't have privileges to view this page."
+		else
+			@mentor = current_mentor
 		end
 	end
 end
