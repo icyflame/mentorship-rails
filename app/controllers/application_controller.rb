@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.for(:sign_up) << :rollnum
   	devise_parameter_sanitizer.for(:sign_up) << :joinyear
 
+    devise_parameter_sanitizer.for(:account_update) << :name
   	devise_parameter_sanitizer.for(:account_update) << :passoutyear
   	devise_parameter_sanitizer.for(:account_update) << :department
   	devise_parameter_sanitizer.for(:account_update) << :hall
