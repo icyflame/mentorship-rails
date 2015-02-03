@@ -3,5 +3,5 @@ class Mentor < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates_presence_of :name, :department, :passoutyear, :hall, :field
+  validates_presence_of :name, :department, :passoutyear, :firm, :designation, :phone
 end
