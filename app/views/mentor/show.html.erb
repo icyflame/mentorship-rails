@@ -1,3 +1,179 @@
 <h1>Mentor Profile Page: ID <%= params[:id] %> </h1>
 
-<h2> Page to be designed by Arihant </h2>
+<!-- <h2> Page to be designed by Arihant </h2> -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Student Alumni Mentorship programme</title>
+<link href="css/style1.css" rel='stylesheet' type='text/css' />
+<link data-turbolinks-track="true" href="/assets/application-6776054537e3dc90bdf60fae8bafe237.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application-7a87a33a8fb895fadb761f1f46e00af0.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body >
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SAMP</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right" >
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Recent Updates</a></li>
+        <li><a href="#">General Guidelines </a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Logout</a></li>
+  
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div >
+<div class="row">
+
+    <div  class="col-md-3" >
+	    <h1 style="margin:5px 80px 5px 40px">Mentee</h1>
+	      <a href="#" class="thumbnail" style="margin:0px 80px 5px 38px">
+	      <img src="banner.jpg" alt="..." >
+	    </a>
+	    <a style="margin:5px 80px 5px 40px;color:black;border-color:black" href="#" class="btn btn-info" role="button">Upload  Profile Picture</a>
+	    <div style="margin:5px 80px 5px 40px">
+	    <h2 ><%= @mentor.name %> </h2>
+	        <h4><%= @mentor.email %> </h4>
+	        <h4><%= @mentor.number %> </h4>
+	        <h4><%= @mentor.dob %> </h4>
+	        <h4><%= @mentor.degree %> </h4>
+	        <h4><%= @mentor.department %> </h4>
+	        <h4><%= @mentor.hall %> </h4>
+	        
+	        <p> <a style="color:black;border-color:black" href="#" class="btn btn-info" role="button">Edit your Profile</a></p>
+	    </div>
+    </div>
+    <div class="col-md-6">
+     <ul class="nav nav-pills nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge">42</span></a></li>
+        <li role="presentation"><a href="#" style="color:black">My Profile</a></li>
+        <li role="presentation"><a href="#" style="color:black">My Messages<span class="badge">3</span></a></li>
+     </ul>
+     <div style="margin:30px 0px 5px 0px">
+	     <h3 >Feel Free to get in touch with your Mentor</h3>
+	     <div class="form-group">
+	     		<input type="text" class="form-control " placeholder="Subject">
+	     </div>
+	     <div class="form-group">
+	     		<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
+	     </div>
+
+	     <a href="#" class="btn btn-primary  btn-lg" id="send" role="button" style="border-color:black ">SEND</a>
+     </div>
+<div style="margin:30px 0px 5px 0px">
+     <h3 >List of Mentors</h3>
+
+     <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table" >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Mentor's Name</th>
+            <th>Department</th>
+            <th>Designation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>mechanical</td>
+            <td>Chief Engineer @ Tata Steel</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>electrical</td>
+            <td>CEO @ L&T</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>computer science</td>
+            <td>CTO @ twitter</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>
+    
+
+    <div class="row" style="margin:5px 4px 5px 4px">
+  <h1>Recent updates </h1>
+    <div class="thumbnail">
+      <img src="det_pic.jpg" alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+      </div>
+    </div>
+
+    <div class="thumbnail">
+      <img src="banner.jpg" alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+      </div>
+    </div>
+
+    </div>
+
+
+
+    </div>
+    <div class="col-md-3">
+    <h1 style="margin:5px 80px 5px 40px" >Mentor</h1>
+      <a href="#" class="thumbnail" style="margin:5px 80px 5px 40px">
+      <img src="banner.jpg" alt="...">
+    </a>
+    <div style="margin:5px 80px 5px 40px">
+    <h2 ><%= @mentor.name %> </h2>
+        <h4><%= @mentor.company %> </h4>
+        <h4>designation</h4>
+        <h4><%= @mentor.email %> </h4>
+        <h4><%= @mentor.number %> </h4>
+        <h4><%= @mentor.degree %> </h4>
+        <h4><%= @mentor.department %> </h4>
+        <h4><%= @mentor.hall %> </h4>
+    </div>
+    </div>	
+    </div>
+    </div>
+    
+
+</div>
+</div>
+</body>
