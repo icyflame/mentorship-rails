@@ -9,6 +9,9 @@ class MentorController < ApplicationController
 			render plain: "You don't have privileges to view this page."
 		else
 			@mentor = current_mentor
+			# @mentees = TieMentorWithMentees.find_all_by_mentor_id(current_mentor.id)
+			@mentees = TieMentorWithMentees.where(:mentor_id => current_mentor.id)
+			# render plain: @mentees.inspect()
 		end
 	end
 end
