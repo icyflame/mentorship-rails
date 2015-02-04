@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get 'student/show'
 
   devise_for :students
-  devise_for :mentors
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  devise_for :mentors, controllers: { registrations: 'mentors/registrations' }
 
   resources :student
   resources :mentor
