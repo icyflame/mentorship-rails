@@ -1,85 +1,108 @@
+<style>
+body{
+	background-color: #00CC99!important   
+}
+</style>
+
 <h1>Hey, <%= @mentor.name %>! </h1>
 
 <div class="row">
 
 	<div class="col-md-9">
 		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge">42</span></a></li>
+			<!-- <li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge">42</span></a></li> -->
+
+			<li role="presentation"><a href="<%= edit_mentor_registration_path %>" style="color:white; background-color: #800;">Complete your profile</a></li>
+
+			<!--
 			<li role="presentation"><a href="#" style="color:black">My Messages<span class="badge">3</span></a></li>
-		</ul>
-		<div style="margin:30px 0px 5px 0px">
-
-
-			<% if not @mentees.length == 0 %>
-
-			<select class="form-control">
-
-				<% @mentees.each do |tiementee| %>
-				<% mentee = Student.find(tiementee.student_id) %>
-				<option value="<%= mentee.id %>"><%= mentee.name %></option>
-				<% end %>
-
-			</select>
-
-			<br/>
-
-			<div class="form-group">
-				<input type="text" class="form-control " placeholder="Subject">
-			</div>
-			<div class="form-group">
-				<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
-			</div>
-
-			<a href="#" class="btn btn-primary  btn-lg" id="send" role="button">SEND</a>
-
-			<% end %>
-		</div>
-
-		<div class="row" style="margin:5px 4px 5px 4px">
-			<h1>Recent updates </h1>
-			<div class="thumbnail">
-				<img src="/assets/images/det_pic.jpg" alt="...">
-				<div class="caption">
-					<h3>Thumbnail label</h3>
-					<p>...</p>
-					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-				</div>
-			</div>
-
-			<div class="thumbnail">
-				<img src="/assets/images/det_pic.jpg" alt="...">
-				<div class="caption">
-					<h3>Thumbnail label</h3>
-					<p>...</p>
-					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div class="col-md-3">
+		-->
+	</ul>
+	<div style="margin:30px 0px 5px 0px">
 
 		<% if @mentees.length == 0 %>
 
-		<h1 class="center"> No mentees allotted yet! </h1>
+		<h3>
+			Welcome to the Student-Alumni Mentorship Programme! 
+		</h3>
 
-		<% else %>
-
-		<h1>List of Mentees</h1>
-
-		<% @mentees.each do |tiementee| %>
-		<% mentee = Student.find(tiementee.student_id) %>
-
-		<h3><%= mentee.name %></h3>
-		<p><%= mentee.department %></p>
-		<p><%= mentee.hall %></p>
-		<p>Joined in <%= mentee.joinyear %></p>
+		<h4>
+			We will allot you a mentee soon. The messaging system will be activated then.
+		</h4>
 
 		<% end %>
 
-		<% end %>
 
-	</div>	
+		<% if not @mentees.length == 0 %>
+
+		<select class="form-control">
+
+			<% @mentees.each do |tiementee| %>
+			<% mentee = Student.find(tiementee.student_id) %>
+			<option value="<%= mentee.id %>"><%= mentee.name %></option>
+			<% end %>
+
+		</select>
+
+		<br/>
+
+		<div class="form-group">
+			<input type="text" class="form-control " placeholder="Subject">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
+		</div>
+
+		<a href="#" class="btn btn-primary  btn-lg" id="send" role="button">SEND</a>
+
+		<% end %>
+	</div>
+
+	<div class="row" style="margin:5px 4px 5px 4px">
+		<h1>Recent updates </h1>
+		<div class="thumbnail">
+			<img src="/assets/images/det_pic.jpg" alt="...">
+			<div class="caption">
+				<h3>Thumbnail label</h3>
+				<p>...</p>
+				<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+			</div>
+		</div>
+
+		<div class="thumbnail">
+			<img src="/assets/images/det_pic.jpg" alt="...">
+			<div class="caption">
+				<h3>Thumbnail label</h3>
+				<p>...</p>
+				<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="col-md-3">
+
+	<% if @mentees.length == 0 %>
+
+	<h1 class="center"> No mentees allotted yet! </h1>
+
+	<% else %>
+
+	<h1>List of Mentees</h1>
+
+	<% @mentees.each do |tiementee| %>
+	<% mentee = Student.find(tiementee.student_id) %>
+
+	<h3><%= mentee.name %></h3>
+	<p><%= mentee.department %></p>
+	<p><%= mentee.hall %></p>
+	<p>Joined in <%= mentee.joinyear %></p>
+
+	<% end %>
+
+	<% end %>
+
+</div>	
 </div>
 
