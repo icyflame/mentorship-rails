@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :firm
     devise_parameter_sanitizer.for(:sign_up) << :designation
     devise_parameter_sanitizer.for(:sign_up) << :phone
-    devise_parameter_sanitizer.for(:sign_up) << :skype_name
+    devise_parameter_sanitizer.for(:sign_up) << :facebook
+    devise_parameter_sanitizer.for(:sign_up) << :twitter
+    devise_parameter_sanitizer.for(:sign_up) << :linkedin
+    devise_parameter_sanitizer.for(:sign_up) << :skypename
 
   	devise_parameter_sanitizer.for(:sign_up) << :rollnum
   	devise_parameter_sanitizer.for(:sign_up) << :joinyear
@@ -29,7 +32,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :firm
     devise_parameter_sanitizer.for(:account_update) << :designation
     devise_parameter_sanitizer.for(:account_update) << :phone
-    devise_parameter_sanitizer.for(:account_update) << :skype_name
+    devise_parameter_sanitizer.for(:account_update) << :skypename
+    devise_parameter_sanitizer.for(:account_update) << :facebook
+    devise_parameter_sanitizer.for(:account_update) << :twitter
+    devise_parameter_sanitizer.for(:account_update) << :linkedin
 
   	devise_parameter_sanitizer.for(:account_update) << :rollnum
   	devise_parameter_sanitizer.for(:account_update) << :joiningyear
