@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'mentor/complete_profile'
+
   get 'static_pages/sac'
 
   get 'static_pages/contact'
@@ -16,9 +18,11 @@ Rails.application.routes.draw do
   get 'student/show'
 
   devise_for :students
-  devise_for :mentors
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  devise_for :mentors, controllers: { registrations: 'mentors/registrations' }
 
   resources :student
   resources :mentor
