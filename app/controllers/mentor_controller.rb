@@ -14,4 +14,7 @@ class MentorController < ApplicationController
 			# render plain: @mentees.inspect()
 		end
 	end
+
+	def complete_profile
+	end
 end

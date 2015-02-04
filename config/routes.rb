@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'mentor/complete_profile'
+
   get 'static_pages/sac'
 
   get 'static_pages/contact'
