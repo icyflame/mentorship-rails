@@ -67,89 +67,86 @@ body{
 
 	</style>
 
-	<body>
+	<br/>
 
-		<br/>
-
-		<div  id="home">
-			<div class="row">
-				<div class="col-md-4" >
-					<div style="position:relative">
-						<img src="/assets/images/sac-logo.png" height="120px">
-					</div>
-					<div id="register-form" class="center">
-						<h2 style="color: white; font-size:25px">
-							Register Now
-						</h2>
-						<br/>
-
-						<%= form_tag("/registerperson", method: "post") do %>
-
-						<%= text_field_tag(:name, "", :placeholder => "Enter your full name", onchange: " $('#mentor_name').attr('value', $(this).val());  $('#student_name').attr('value', $(this).val()); ") %> 
-						<br/>
-
-						<%= text_field_tag(:email, "", :placeholder => "Email ID", onchange: "$('#mentor_email').attr('value', $(this).val());  $('#student_email').attr('value', $(this).val()); ") %> 
-						<br/>
-						
-						<%= password_field_tag(:password, "", :placeholder => "Password", onchange: " $('#mentor_password').attr('value', $(this).val());  $('#student_password').attr('value', $(this).val()); ") %> 
-						<br/>
-
-						<% end %>
-
-						<hr/>
-
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registermentor">
-							I want to be a Mentor
-						</button>
-
-						<hr/>
-
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerstudent">
-							I am a student
-						</button>
-					</div>
+	<div  id="home">
+		<div class="row">
+			<div class="col-md-4" >
+				<div style="position:relative">
+					<img src="/assets/images/sac-logo.png" height="120px">
 				</div>
+				<div id="register-form" class="center">
+					<h2 style="color: white; font-size:25px">
+						Register Now
+					</h2>
+					<br/>
 
-				<div class="col-md-8" style="padding-top:14px">
-					<img src="/assets/images/det_pic.jpg" style="width: 100%; ">
-					<hr>
-					<div class="jumbotron">
-						<div class="container">
-							The alumni mentorship program was started in session 2010-11 by the Students’ Alumni Cell as an initiative to create a platform for the exchange of experience among the alumni and the current students in the campus.<br><br>
+					<%= form_tag("/registerperson", method: "post") do %>
 
-							With an ocean of possibilities available students often find it difficult to decide their way into the future. There are lots of instances where we as students find the need of a mentor who can advise us and guide us through. Alumni you are a huge store of knowledge and experience and a hand of yours can be our best support.
-						</div>
+					<%= text_field_tag(:name, "", :placeholder => "Enter your full name", onchange: " $('#mentor_name').attr('value', $(this).val());  $('#student_name').attr('value', $(this).val()); ") %> 
+					<br/>
+
+					<%= text_field_tag(:email, "", :placeholder => "Email ID", onchange: "$('#mentor_email').attr('value', $(this).val());  $('#student_email').attr('value', $(this).val()); ") %> 
+					<br/>
+					
+					<%= password_field_tag(:password, "", :placeholder => "Password", onchange: " $('#mentor_password').attr('value', $(this).val());  $('#student_password').attr('value', $(this).val()); ") %> 
+					<br/>
+
+					<% end %>
+
+					<hr/>
+
+					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registermentor">
+						I want to be a Mentor
+					</button>
+
+					<hr/>
+
+					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerstudent">
+						I am a student
+					</button>
+				</div>
+			</div>
+
+			<div class="col-md-8" style="padding-top:14px">
+				<img src="/assets/images/det_pic.jpg" style="width: 100%; ">
+				<hr>
+				<div class="jumbotron">
+					<div class="container">
+						The alumni mentorship program was started in session 2010-11 by the Students’ Alumni Cell as an initiative to create a platform for the exchange of experience among the alumni and the current students in the campus.<br><br>
+
+						With an ocean of possibilities available students often find it difficult to decide their way into the future. There are lots of instances where we as students find the need of a mentor who can advise us and guide us through. Alumni you are a huge store of knowledge and experience and a hand of yours can be our best support.
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="modal fade" id="registermentor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Sign up as a Mentor </h4>
-					</div>
-					<div class="modal-body">
-						<%= render "mentors/registrations/register" %>
-					</div>
+	<div class="modal fade" id="registermentor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Sign up as a Mentor </h4>
+				</div>
+				<div class="modal-body">
+					<%= render "mentors/registrations/register" %>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="modal fade" id="registerstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Sign up as a Student </h4>
-					</div>
-					<div class="modal-body">
-						<%= render "students/registrations/register" %>
-					</div>
+	<div class="modal fade" id="registerstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Sign up as a Student </h4>
+				</div>
+				<div class="modal-body">
+					<%= render "students/registrations/register" %>
 				</div>
 			</div>
 		</div>
-
-	</body>
+	</div>
+	
