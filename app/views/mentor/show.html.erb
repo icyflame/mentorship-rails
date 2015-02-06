@@ -2,20 +2,34 @@
 body{
 	background-color: rgb(233,234,236)!important
 }
+
+.newsfeed a{
+	color: white;
+}
+
+.newsfeed a:hover{
+	color: rgba(255, 255, 255, 0.5 );
+}
+
+.newsfeed hr{
+	border-color: blue;
+}
 </style>
 
-<!-- <h1>Hey, <%= @mentor.name %>! </h1> -->
+<h1>Hey, <%= @mentor.name %>! </h1>
 
-<!-- <div class="row">
+<div class="row">
 
 	<div class="col-md-9">
 		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge">42</span></a></li>
+			<li role="presentation" class="active"><a href="<%= root_path %>" style="color:black">Home<span class="badge">42</span></a></li>
+
+			<% if not @mentor.complete_profile %>
 
 			<li role="presentation"><a href="<%= mentor_complete_profile_path %>" style="color:white; background-color: #800;">Complete your profile</a></li>
 
-			<li role="presentation"><a href="#" style="color:black">My Messages<span class="badge">3</span></a></li>
-		
+			<% end %>
+
 		</ul>
 		<div style="margin:30px 0px 5px 0px">
 
@@ -103,71 +117,19 @@ body{
 
 		<% end %>
 
+		<div class="newsfeed" style="border-radius: 1px; background-color: rgba(0, 0, 0, 0.5); padding-left: 5px; padding-right: 5px;">
+			<br/>
+			<h2 class="center">Newsfeed</h2>
+			<hr/>
+			<span>Something here</span> 
+			<hr/>
+			<span>Something related here</span> 
+			<hr/>
+			<span>This text can have <a>links</a> too</span> 
+			<hr/>
+			<span>Website Coming Soon!</span> 
+
+		</div>
+
 	</div>	
-</div> -->
-
-
-<div class="row">
-	<div class="col-md-3">
-		<h2><%= @mentor.name %></h2>
-		<img src="/assets/images/det_pic.jpg" width="180px" height="100px;">
-		<button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Edit Profile Picture">
-			<span class="glyphicon glyphicon-plus"></span>
-			Upload Picture
-		</button><br>
-		<div class="list-group">
-			<li class="list-group-item"><strong>Hall </strong> <span class="pull-right"><%= @mentor.hall %></span></li>
-			<li class="list-group-item"><strong>Department </strong> <span class="pull-right"><%= @mentor.department %></span></li>
-			<li class="list-group-item"><strong>Firm </strong> <span class="pull-right"><%= @mentor.firm %></span></li>
-			<li class="list-group-item"><strong>Designation </strong> <span class="pull-right"><%= @mentor.designation %></span></li>
-			<li class="list-group-item"><strong>Phone </strong> <span class="pull-right"><%= @mentor.phone %></span></li>
-			<li class="list-group-item"><strong>Pass out year </strong> <span class="pull-right"><%= @mentor.passoutyear %></span></li>
-			<button class="btn btn-success center">Edit Profile</button>
-			<a href="/mentors/edit">Edit Profile</a>
-		</div>
-	</div><!-- col-md-3 ends-->
-
-	<div class="col-md-6">
-		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li role="presentation" class="active"><a href="#" style="color:black">Home<span class="badge pull-right">42</span></a></li>
-			<li role="presentation"><a href="#" style="color:black">Messages <span class="label label-info">4 new</span></a></li>
-		</ul>
-		<div class="well">
-			<h2>Feel free to get in touch with your mentee</h2>
-			<div class="alert alert-danger">Our Messeging service is Currently down for Maintenance</div>
-		</div>
-		<div class="well">
-
-			<% if @mentees.length == 0 %>
-
-			<h2>No Mentees Alloted Yet..!!</h2>
-
-			<% else %>
-
-			<h2>List of Mentees</h2>
-
-			<% @mentees.each do |tiementee| %>
-			<% mentee = Student.find(tiementee.student_id) %>
-
-			<h3><%= mentee.name %></h3>
-			<p><%= mentee.department %></p>
-			<p><%= mentee.hall %></p>
-			<p>Joined in <%= mentee.joinyear %></p>
-
-			<% end %>
-
-			<% end %>
-
-		</div>
-	</div><!-- col-md-6 ends-->
-
-	<div class="col-md-3">
-		<h2>Recent Updates</h2>
-		<div class="list-group">
-			<a href="#" class="list-group-item">Website Coming Soon</a>
-			<a href="#" class="list-group-item">Website Coming Soon</a>
-			<a href="#" class="list-group-item">Website Coming Soon</a>
-			<a href="#" class="list-group-item">Website Coming Soon</a>
-		</div>
-	</div><!-- col-md-3 ends-->
 </div>
