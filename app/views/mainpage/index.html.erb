@@ -1,38 +1,38 @@
  
 <style type="text/css">
-body{
-	background-image: url(/assets/images/banner7.jpg) !important;
-}
+	body {
+		/*background-image: url(/assets/images/banner7.jpg) !important;*/
+	}
 
-.navbar a{
-	-webkit-transition: all 0.5s ease-out;
-	-moz-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
-}
+	.navbar a{
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
 
-.navbar a:hover{
-	-webkit-transition: all 0.5s ease-out;
-	-moz-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
-}
+	.navbar a:hover{
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
 
-#logo
-{
-	margin: 0 0 0 0 ;
-	padding: 0 0 0 0 ;
+	#logo
+	{
+		margin: 0 0 0 0 ;
+		padding: 0 0 0 0 ;
 
-}
+	}
 
-/*#home
-{
-	position: relative;
-	margin-top: 8%; 
-	padding-left: 3%;
-	padding-right: 3%; 
+	/*#home
+	{
+		position: relative;
+		margin-top: 8%; 
+		padding-left: 3%;
+		padding-right: 3%; 
 
-	}*/
+		}*/
 
 	#register
 	{
@@ -64,15 +64,14 @@ body{
 	.white{
 		color: white;
 	}
-
-	</style>
+</style>
 
 	<br/>
 
 	<div  id="home">
 		<div class="row">
 			<div class="col-md-4" >
-				<div style="position:relative">
+				<div>
 					<img src="/assets/images/sac-logo.png" height="120px">
 				</div>
 				<div id="register-form" class="center">
@@ -80,6 +79,8 @@ body{
 						Register Now
 					</h2>
 					<br/>
+
+					<% if not student_signed_in? and not mentor_signed_in? %>
 
 					<%= form_tag("/registerperson", method: "post") do %>
 
@@ -105,8 +106,29 @@ body{
 					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerstudent">
 						I am a student
 					</button>
+
+					<% end %>
+
 				</div>
-			</div>
+
+				<% if student_signed_in? or mentor_signed_in? %>
+
+				<div class="well">
+					<h4> Recent Activities </h4>
+					<ul>
+						<li>MAnagement Development Programme on Multivariate Date<small> - 17 dev 2014 - </small></li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>MAnagement Development Programme on Multivariate Date</li>
+					</ul>
+				</div>
+
+				<% end %>
+
+			</div><!-- col-md-4 ends -->
 
 			<div class="col-md-8" style="padding-top:14px">
 				<img src="/assets/images/det_pic.jpg" style="width: 100%; ">
