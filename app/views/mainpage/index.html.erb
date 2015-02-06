@@ -1,7 +1,7 @@
  
 <style type="text/css">
 	body {
-		/*background-image: url(/assets/images/banner7.jpg) !important;*/
+		background-image: url(/assets/images/banner7.jpg) !important;
 	}
 
 	.navbar a{
@@ -24,15 +24,6 @@
 		padding: 0 0 0 0 ;
 
 	}
-
-	/*#home
-	{
-		position: relative;
-		margin-top: 8%; 
-		padding-left: 3%;
-		padding-right: 3%; 
-
-		}*/
 
 	#register
 	{
@@ -75,12 +66,13 @@
 					<img src="/assets/images/sac-logo.png" height="120px">
 				</div>
 				<div id="register-form" class="center">
-					<h2 style="color: white; font-size:25px">
-						Register Now
-					</h2>
 					<br/>
 
 					<% if not student_signed_in? and not mentor_signed_in? %>
+
+					<h2 style="color: white; font-size:25px">
+						Register Now
+					</h2>
 
 					<%= form_tag("/registerperson", method: "post") do %>
 
@@ -114,15 +106,15 @@
 				<% if student_signed_in? or mentor_signed_in? %>
 
 				<div class="well">
-					<h4> Recent Activities </h4>
+					<h2 class="center"> Recent Activities </h2>
 					<ul>
-						<li>MAnagement Development Programme on Multivariate Date<small> - 17 dev 2014 - </small></li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
 					</ul>
 				</div>
 
