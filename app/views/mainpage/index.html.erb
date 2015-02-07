@@ -1,7 +1,7 @@
  
 <style type="text/css">
 	body {
-		/*background-image: url(/assets/images/banner7.jpg) !important;*/
+		background-image: url(/assets/images/banner7.jpg) !important;
 	}
 
 	.navbar a{
@@ -75,12 +75,15 @@
 					<img src="/assets/images/sac-logo.png" height="120px">
 				</div>
 				<div id="register-form" class="center">
+
+					<% if not student_signed_in? and not mentor_signed_in? %>
+
 					<h2 style="color: white; font-size:25px">
 						Register Now
 					</h2>
 					<br/>
 
-					<% if not student_signed_in? and not mentor_signed_in? %>
+					
 
 					<%= form_tag("/registerperson", method: "post") do %>
 
@@ -115,14 +118,14 @@
 
 				<div class="well">
 					<h4> Recent Activities </h4>
-					<ul>
-						<li>MAnagement Development Programme on Multivariate Date<small> - 17 dev 2014 - </small></li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
-						<li>MAnagement Development Programme on Multivariate Date</li>
+					<ul class="list-group">
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
+						<li class="list-group-item">MAnagement Development Programme on Multivariate Date &nbsp;<span class="label label-info">something</span></li>
 					</ul>
 				</div>
 
