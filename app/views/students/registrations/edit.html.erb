@@ -27,11 +27,15 @@
 
       <div class="field">
         <%= f.label :department %><br />
-        <%= f.text_field :department %>
+        <select name="student[department]" class="form-control">
+          <%= render 'sharedviews/departments' %>
+        </select>
       </div>
       <div class="field">
         <%= f.label :hall %><br />
-        <%= f.text_field :hall %>
+        <select name="student[hall]" class="form-control">
+          <%= render 'sharedviews/halls' %>
+        </select>
       </div>
 
       <div class="field">
