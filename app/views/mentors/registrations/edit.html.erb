@@ -1,18 +1,7 @@
 
-<style type="text/css">
-/*#social {
-  display: none;
-}
-#password {
-  display: none;
-}*/
-</style>
-
-
 <div class="container">
 
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -21,9 +10,9 @@
     <div class="col-md-4">
 
       <div class="list-group">
-        <a href="#" class="list-group-item personal active">Person Detail</a>
-        <a href="#" class="list-group-item social">Social Detail</a>
-        <a href="#" class="list-group-item password">Password Detail</a>
+        <a href="#" class="list-group-item personal active">Personal Details</a>
+        <a href="#" class="list-group-item social">Social Details</a>
+        <a href="#" class="list-group-item password">Change Password</a>
       </div>
 
     </div>
@@ -92,12 +81,12 @@
 
       <div id="password" class="well hidden">
         <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :new_password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
       </div><!--Password ended -->

@@ -9,7 +9,7 @@
     <div class="list-group">
       <a href="#" class="list-group-item personal active">Personal Details</a>
       <a href="#" class="list-group-item social">Socail Details</a>
-      <a href="#" class="list-group-item password">Password Details</a>
+      <a href="#" class="list-group-item password">Change Password</a>
     </div>
   </div><!--col-md-4 ends -->
 
@@ -55,12 +55,12 @@
 
     <div class="well hidden" id="password">
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :new_password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     </div>
