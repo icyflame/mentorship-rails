@@ -13,6 +13,19 @@ body {
 	background-color: rgb(233,234,236);
 	font-family: "Ubuntu";
 }
+.navbar a{
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
+
+	.navbar a:hover{
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
 .navbar {
 	background-color: transparent;
 	/*color: black; */
@@ -84,18 +97,17 @@ span.main {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" id="logo">
+				<img class="img-responsive hidden-sm hidden-md" src="/assets/images/ment-logo2.jpg" width="400px" height="200px" style="padding-top: 7px; ">
+				
+				<!-- <a class="navbar-brand hidden-sm hidden-md" href="/" id="logo"> -->
 					<!-- SAMP -->
-					<img class="img-responsive" src="/assets/images/ment-logo2.jpg" width="500px" height="200px">
-					<!-- <a class="navbar-brand" id="logo" href="#"> -->
-          <!-- <span class="secondary">Student Alumni</span>
-          <span class="main">Mentorship<span class="tertiary">rogramme</span></span> -->
-				</a>
+					
+				<!-- </a> -->
 			</div>
 
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav" style="font-size:17px; padding-left: 40px; padding-top:7px;padding-bottom:6.5px;">
+				<ul class="nav navbar-nav" style="font-size:17px; padding-left: ; padding-top:7px;padding-bottom:6.5px;">
 
 					<li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
 					<li><a href="/static_pages/sac">SAC</a></li>
@@ -103,6 +115,8 @@ span.main {
 					<li><a href="/static_pages/contact">Contact us</a></li>
 
 				</ul>
+
+				<div style="padding-right: 10px; ">
 
 				<% if not student_signed_in? and not mentor_signed_in? %>
 
@@ -117,6 +131,8 @@ span.main {
 				<% end %>
 
 				<% end %>
+
+			</div>
 
 				<ul class="nav navbar-nav navbar-right">
 
