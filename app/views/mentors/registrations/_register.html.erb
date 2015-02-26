@@ -31,29 +31,10 @@
 
 <div class="field">
   <%= f.label :department %><br />
-  <%= f.text_field :department %>
-  <select>
-    <option value="">Ashutosh Mukherjee  Hall</option>
-    <option value="">Azad  Hall</option>
-    <option value="">B C Roy  Hall</option>
-    <option value="">B R Ambedkar  Hall</option>
-    <option value="">Gokhale  Hall</option>
-    <option value="">Homi Bhabha  Hall</option>
-    <option value="">J C Bose  Hall</option>
-    <option value="">Lala Lajpat Rai  Hall</option>
-    <option value="">Lalbahadur Sastry  Hall</option>
-    <option value="">Madan Mohan Malviya  Hall</option>
-    <option value="">Megnad Saha  Hall</option>
-    <option value="">Mother Teresa  Hall</option>
-    <option value="">Nehru  Hall</option>
-    <option value="">Patel  Hall</option>
-    <option value="">Radha Krishnan  Hall</option>
-    <option value="">Rajendra Prasad  Hall</option>
-    <option value="">Rani Laxmibai  Hall</option>
-    <option value="">Sarojini Naidu / Indira Gandhi  Hall</option>
-    <option value="">Vidyasagar  Hall</option>
-    <option value="">Zakir Hussain  Hall</option>
+  <select name="mentor[department]" class="form-control">
+    <%= render 'sharedviews/departments' %>
   </select>
+</select>
 </div>
 
 <hr/>
