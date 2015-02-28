@@ -1,0 +1,180 @@
+<style>
+body{
+	background-color: rgb(233,234,236)!important
+}
+
+.newsfeed a{
+	color: white;
+}
+
+.newsfeed a:hover{
+	color: rgba(255, 255, 255, 0.5 );
+}
+
+.newsfeed hr{
+	border-color: blue;
+}
+
+ul.nav-pills li{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+</style>
+
+<h1>Hey, <%= @mentor.name %>! </h1>
+
+<div class="row">
+
+	<div class="col-md-9">
+		<ul class="nav nav-pills nav-justified" role="tablist">
+			<li role="presentation" class="active"><a href="<%= root_path %>" style="color:black">Home</a></li>
+
+			<% if not @mentor.complete_profile %>
+
+			<li role="presentation"><a href="<%= mentor_complete_profile_path %>" style="color:white; background-color: #800;">Complete your profile</a></li>
+
+			<% end %>
+
+		</ul>
+		<div style="margin:30px 0px 5px 0px">
+
+			<% if @mentees.length == 0 %>
+
+			<h3>
+				Welcome to the Student-Alumni Mentorship Programme! 
+			</h3>
+
+			<h4>
+				We will allot you a mentee soon. The messaging system will be activated then.
+			</h4>
+
+			<% end %>
+
+
+			<% if not @mentees.length == 0 %>
+
+			<h1> Get in touch with your mentee! </h1>
+
+			<div class="center">
+
+			<% @mentees.each do |tiementee| %>
+<% mentee = Student.find(tiementee.student_id) %>
+			<a class="btn btn-primary" href="mailto: <%= mentee.email %>">
+
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp
+
+				<%= mentee.name %>
+
+			</a>
+
+			<% end %>
+		</div>
+
+		<!--
+
+			<select class="form-control">
+
+<% @mentees.each do |tiementee| %>				
+				<% mentee = Student.find(tiementee.student_id) %>
+				<option value="<%= mentee.id %>"><%= mentee.name %></option>
+				<% end %>
+
+			</select>
+
+			<br/>
+
+			<div class="form-group">
+				<input type="text" class="form-control " placeholder="Subject">
+			</div>
+			<div class="form-group">
+				<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
+			</div>
+
+			<a href="#" class="btn btn-primary  btn-lg" id="send" role="button">SEND</a>
+
+			<% end %>
+
+		-->
+		</div>
+		<div class="row" style="margin:5px 4px 5px 4px">
+			<h1>Recent updates </h1>
+			<div class="thumbnail">
+				<img src="/assets/images/det_pic.jpg" alt="...">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+				</div>
+			</div>
+
+			<div class="thumbnail">
+				<img src="/assets/images/det_pic.jpg" alt="...">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-md-3">
+
+		<% if @mentees.length == 0 %>
+
+		<h1 class="center"> No mentees allotted yet! </h1>
+
+		<% else %>
+
+		<h1>List of Mentees</h1>
+
+		<table class="table table-striped">
+			<tbody>
+
+				<% @mentees.each do |tiementee| %>
+				<% mentee = Student.find(tiementee.student_id) %>
+
+				<tr>
+					<td><p style="font-size: 20px; "><%= mentee.name %></p></td>
+				</tr>
+				<tr style="font-size: 16px; ">
+					<td><%= mentee.department %> | <%= mentee.hall %></td>
+					<td><%= mentee.joinyear %></td>					
+				</tr>
+<!--
+		<hr/>
+	
+		<h2><%= mentee.name %></h2>
+
+		<br/>
+		<div style="font-size: 25px; ">
+			
+			<p class="pull-left"><%= mentee.joinyear %></p>
+			<p class="pull-right"><%= mentee.department %> | <%= mentee.hall %></p>
+
+		</div>
+	-->
+
+	<% end %>
+</tbody>
+</table>
+<% end %>
+
+<div class="newsfeed" style="border-radius: 1px; background-color: rgba(0, 0, 0, 0.2); padding-left: 5px; padding-right: 5px;">
+	<br/>
+	<h2 class="center">Newsfeed</h2>
+	<hr/>
+	<span>Something here</span> 
+	<hr/>
+	<span>Something related here</span> 
+	<hr/>
+	<span>This text can have <a>links</a> too</span> 
+	<hr/>
+	<span>Website Coming Soon!</span> 
+
+</div>
+
+</div>	
+</div>

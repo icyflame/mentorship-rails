@@ -1,0 +1,156 @@
+ 
+<style type="text/css">
+	body {
+		background-image: url(/assets/images/banner7.jpg) !important;
+		/*background-color: #97dbed;*/
+		opacity: 20%;
+		background-repeat: no-repeat;
+	}
+
+	#logo
+	{
+		margin: 0 0 0 0 ;
+		padding: 0 0 0 0 ;
+
+	}
+
+	#register
+	{
+		padding: 0 0 10px 0;
+		width: 100%;
+	}
+
+	#register-btn
+	{
+		width: 100%;
+		line-height: 40px;
+		font-size: 20px;
+		color:black;
+		border-color: black;
+
+	}
+
+	#register-form
+	{
+		position: relative;
+		top: -20px;
+	}
+
+	.logo{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.white{
+		color: white;
+	}
+</style>
+
+	<br/>
+
+	<div  id="home">
+		<div class="row">
+			<div class="col-md-4" >
+				<div>
+					<img src="/assets/images/sac-logo.png" height="120px">
+				</div>
+				<div id="register-form" class="center">
+
+					<% if not student_signed_in? and not mentor_signed_in? %>
+					
+
+					<h2 style="color: white; font-size:25px">
+						Register Now
+					</h2>
+
+					<%= form_tag("/registerperson", method: "post") do %>
+
+					<%= text_field_tag(:name, "", :placeholder => "Enter your full name", onchange: " $('#mentor_name').attr('value', $(this).val());  $('#student_name').attr('value', $(this).val()); ") %> 
+					<br/>
+
+					<%= text_field_tag(:email, "", :placeholder => "Email ID", onchange: "$('#mentor_email').attr('value', $(this).val());  $('#student_email').attr('value', $(this).val()); ") %> 
+					<br/>
+					
+					<%= password_field_tag(:password, "", :placeholder => "Password", onchange: " $('#mentor_password').attr('value', $(this).val());  $('#student_password').attr('value', $(this).val()); ") %> 
+					<br/>
+
+					<% end %>
+
+					<hr/>
+
+					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registermentor">
+						I want to be a Mentor
+					</button>
+
+					<hr/>
+
+					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerstudent">
+						I am a student
+					</button>
+
+					<% end %>
+
+				</div>
+
+				<% if student_signed_in? or mentor_signed_in? %>
+
+				<div class="well">
+
+					<h2 class="center"> Recent Activities </h2>
+					<ul>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+						<li>Management Development Programme on Multivariate Date</li>
+					</ul>
+				</div>
+
+				<% end %>
+
+			</div><!-- col-md-4 ends -->
+
+			<div class="col-md-8" style="padding-top:14px">
+				<img src="/assets/images/gym.jpg" style="width: 100%; ">
+				<hr>
+				<div class="jumbotron" style="background: transparent;">
+					<div class="container" style="">
+						The alumni mentorship program was started in session 2010-11 by the Students’ Alumni Cell as an initiative to create a platform for the exchange of experience among the alumni and the current students in the campus.<br><br>
+
+						With an ocean of possibilities available students often find it difficult to decide their way into the future. There are lots of instances where we as students find the need of a mentor who can advise us and guide us through. Alumni you are a huge store of knowledge and experience and a hand of yours can be our best support.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="registermentor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Sign up as a Mentor </h4>
+				</div>
+				<div class="modal-body">
+					<%= render "mentors/registrations/register" %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="registerstudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Sign up as a Student </h4>
+				</div>
+				<div class="modal-body">
+					<%= render "students/registrations/register" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	

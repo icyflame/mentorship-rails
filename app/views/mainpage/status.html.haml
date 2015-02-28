@@ -1,0 +1,12 @@
+<h1>Mainpage</h1>
+%h1 Application Status
+%p This is the current status of the application
+
+- if student_signed_in?
+  %p Student is signed in!
+  = link_to "Signout", destroy_student_session_path, method: :delete
+
+- if mentor_signed_in?
+
+  %p Mentor is signed in!
+  = link_to "Signout", destroy_mentor_session_path, method: :delete

@@ -1,0 +1,128 @@
+
+<div class="container">
+  <h2>Edit <%= resource_name.to_s.humanize %> Details</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="col-md-4">
+    <div class="list-group">
+      <a href="#" class="list-group-item personal active">Personal Details</a>
+      <a href="#" class="list-group-item social">Socail Details</a>
+      <a href="#" class="list-group-item password">Change Password</a>
+    </div>
+  </div><!--col-md-4 ends -->
+
+  <div class="col-md-8">
+    <div class="well" id="personal">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name%>
+      </div>
+
+      <div class="field">
+        <%= f.label :joining_year %><br />
+        <%= f.text_field :joinyear %>
+      </div>
+
+      <div class="field">
+        <%= f.label :department %><br />
+        <select name="student[department]" class="form-control">
+          <%= render 'sharedviews/departments' %>
+        </select>
+      </div>
+      <div class="field">
+        <%= f.label :hall %><br />
+        <select name="student[hall]" class="form-control">
+          <%= render 'sharedviews/halls' %>
+        </select>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    <div class="well hidden" id="social">
+      <div class="field">
+        <%= f.label :skypename %><br />
+        <%= f.text_field :skypename %>
+      </div>
+    </div>
+
+    <div class="well hidden">
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    </div>
+
+    <div class="well hidden" id="password">
+      <div class="field">
+        <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :new_password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    </div>
+  </div><!--col-md8 ends -->
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <% end %>
+</div><!--container ends -->
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+  $(".personal").on('click', function (){
+    $("#personal").removeClass("hidden");
+    $("#social").addClass("hidden");
+    $('#password').addClass("hidden");
+    $('.list-group-item').each(function () {
+      $(this).removeClass("active");
+    });
+    $('.personal').addClass("active");
+  });
+  $(".social").on('click', function (){
+    $("#personal").addClass("hidden");
+    $("#social").removeClass("hidden");
+    $('#password').addClass("hidden");
+    $('.list-group-item').each(function () {
+      $(this).removeClass("active");
+    });
+    $('.social').addClass("active");
+  });
+  $(".password").on('click', function (){
+    $("#personal").addClass("hidden");
+    $("#social").addClass("hidden");
+    $('#password').removeClass("hidden");
+    $('.list-group-item').each(function () {
+      $(this).removeClass("active");
+    });
+    $('.password').addClass("active");
+  });
+});
+</script>
+
+
+
+
+<!--
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+-->
