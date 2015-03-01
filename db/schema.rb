@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226120133) do
+ActiveRecord::Schema.define(version: 20150226164801) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150226120133) do
     t.string   "linkedin"
     t.boolean  "complete_profile"
     t.integer  "max_mentees",            default: 0
+    t.text     "preference"
   end
 
   add_index "mentors", ["email"], name: "index_mentors_on_email", unique: true
@@ -98,6 +99,11 @@ ActiveRecord::Schema.define(version: 20150226120133) do
     t.string   "last_sign_in_ip"
     t.string   "phone"
     t.string   "skypename"
+    t.text     "preference"
+    t.text     "preference1"
+    t.text     "preference2"
+    t.text     "preference3"
+    t.text     "current_year"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
