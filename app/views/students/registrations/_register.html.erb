@@ -17,16 +17,37 @@
   </select>
 </div>
 
-<div class="field">
+<!-- <div class="field">
   <%= f.label :hall %><br />
   <select name="student[hall]" class="form-control">
     <%= render 'sharedviews/halls' %>
   </select>
+</div> -->
+
+<hr>
+
+<h4>In which field you want to be Mentored in.</h4>
+
+<div class="well">
+  <div class="field">
+    <%= f.label :preference1 %>
+    <%= f.text_field :preference1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preference2 %>
+    <%= f.text_field :preference2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preference3 %>
+    <%= f.text_field :preference3 %>
+  </div>
 </div>
 
 <div class="field">
-  <%= f.label :joining_year %><br />
-  <%= f.text_field :joinyear %>
+  <%= f.label :current_academic_year %><br />
+  <%= f.text_field :current_year %>
 </div>
 
 <div class="field">
