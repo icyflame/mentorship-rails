@@ -11,6 +11,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :CGPA %><br>
+  <%= f.text_field :cgpa %>
+</div>
+
+<div class="field">
   <%= f.label :department %><br />
   <select name="student[department]" class="form-control">
     <%= render 'sharedviews/departments' %>
@@ -31,19 +36,25 @@
 <div class="well">
   <div class="field">
     <%= f.label :preference1 %>
-    <%= f.text_field :preference1 %>
+    <select name="student[preference1]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
   </div>
 
   <div class="field">
     <%= f.label :preference2 %>
-    <%= f.text_field :preference2 %>
+    <select name="student[preference2]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
   </div>
 
   <div class="field">
     <%= f.label :preference3 %>
-    <%= f.text_field :preference3 %>
+    <select name="student[preference3]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
   </div>
-</div>
+</div><!--WELL ENDS -->
 
 <div class="field">
   <%= f.label :current_academic_year %><br />
