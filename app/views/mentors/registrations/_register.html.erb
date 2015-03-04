@@ -30,6 +30,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :preference %>
+  <%= f.text_field :preference %>
+</div>
+
+<div class="field">
   <%= f.label :department %><br />
   <select name="mentor[department]" class="form-control">
     <%= render 'sharedviews/departments' %>
