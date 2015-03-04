@@ -24,10 +24,10 @@
 
     <div  class="col-md-3" >
       <h1 style="margin:5px 80px 5px 40px">Mentee</h1>
-      <a href="#" class="thumbnail" style="margin:0px 80px 5px 38px">
+      <!-- <a href="#" class="thumbnail" style="margin:0px 80px 5px 38px">
         <img src="banner.jpg" alt="..." >
-      </a>
-      <a style="margin:5px 80px 5px 40px;color:black;border-color:black" href="#" class="btn btn-info" role="button">Upload  Profile Picture</a>
+      </a> -->
+      <!-- <a style="margin:5px 80px 5px 40px;color:black;border-color:black" href="#" class="btn btn-info" role="button">Upload  Profile Picture</a> -->
       <div style="">
         <% @student = Student.find(params[:id]) %>
         <div class="list-group">
@@ -88,9 +88,9 @@
 
     <div class="col-md-3">
       <h1 style="margin:5px 80px 5px 40px" >Mentor</h1>
-      <a href="#" class="thumbnail" style="margin:5px 80px 5px 40px">
+      <!-- <a href="#" class="thumbnail" style="margin:5px 80px 5px 40px">
         <img src="banner.jpg" alt="...">
-      </a>
+      </a> -->
       <div style="margin:5px 80px 5px 40px">
         <%= @mentor = Mentor.find(params[:id]) %>
       </div>
