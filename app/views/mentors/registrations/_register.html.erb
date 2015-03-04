@@ -29,9 +29,39 @@
   <%= f.text_field :passoutyear %>
 </div>
 
-<div class="field">
+<!-- <div class="field">
   <%= f.label :preference %>
   <%= f.text_field :preference %>
+</div> -->
+
+<h4>In which field you want to be Mentor in.</h4>
+
+<div class="well">
+  <div class="field">
+    <%= f.label :preference1 %>
+    <select name="mentor[preference1]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= f.label :preference2 %>
+    <select name="mentor[preference2]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= f.label :preference3 %>
+    <select name="mentor[preference3]" class="form-control">
+      <%= render 'sharedviews/departments' %>
+    </select>
+  </div>
+</div><!--WELL ENDS -->
+
+<div class="field">
+  <%= f.label :number_of_mentee %>
+  <%= f.text_field :max_mentee %>
 </div>
 
 <div class="field">
