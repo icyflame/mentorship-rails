@@ -1,42 +1,33 @@
 <style>
 body{
-	background-color: rgb(233,234,236)!important
+	background-color: rgb(233,234,236);
+	padding: 20px;
 }
 
-.newsfeed a{
-	color: white;
-}
-
-.newsfeed a:hover{
-	color: rgba(255, 255, 255, 0.5 );
-}
-
-.newsfeed hr{
-	border-color: blue;
-}
-
-ul.nav-pills li{
-	padding-left: 10px;
-	padding-right: 10px;
-}
 </style>
 
-<h1>Hey, <%= @mentor.name %>! </h1>
+<h1 style="color: white; ">Hey, <%= @mentor.name %>! </h1>
 
 <div class="row">
+	<div class="col-md-3">
+		<br>
+		<div class="list-group">
+			<li class="list-group-item"><strong>Hall </strong> <span class="pull-right"><%= @mentor.hall %></span></li>
+			<li class="list-group-item"><strong>Department </strong> <span class="pull-right"><%= @mentor.department %></span></li>
+			<li class="list-group-item"><strong>Firm </strong> <span class="pull-right"><%= @mentor.firm %></span></li>
+			<li class="list-group-item"><strong>Designation </strong> <span class="pull-right"><%= @mentor.designation %></span></li>
+			<li class="list-group-item"><strong>Phone </strong> <span class="pull-right"><%= @mentor.phone %></span></li>
+			<li class="list-group-item"><strong>Pass out year </strong> <span class="pull-right"><%= @mentor.passoutyear %></span></li>
+			<br/>
+			<a href="<%= edit_mentor_registration_path %>">
+				<button class="btn btn-success">Edit Profile</button>
+			</a>
+		</div>
+	</div><!-- col-md-3 ends-->
 
-	<div class="col-md-9">
-		<ul class="nav nav-pills nav-justified" role="tablist">
-			<li role="presentation" class="active"><a href="<%= root_path %>" style="color:black">Home</a></li>
-
-			<% if not @mentor.complete_profile %>
-
-			<li role="presentation"><a href="<%= mentor_complete_profile_path %>" style="color:white; background-color: #800;">Complete your profile</a></li>
-
-			<% end %>
-
-		</ul>
-		<div style="margin:30px 0px 5px 0px">
+	<div class="col-md-6">
+		
+		<div class="well">
 
 			<% if @mentees.length == 0 %>
 
@@ -50,81 +41,46 @@ ul.nav-pills li{
 
 			<% end %>
 
-
 			<% if not @mentees.length == 0 %>
 
 			<h1> Get in touch with your mentee! </h1>
 
 			<div class="center">
 
-			<% @mentees.each do |tiementee| %>
-<% mentee = Student.find(tiementee.student_id) %>
-			<a class="btn btn-primary" href="mailto: <%= mentee.email %>">
-
-				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp
-
-				<%= mentee.name %>
-
-			</a>
-
-			<% end %>
-		</div>
-
-		<!--
-
-			<select class="form-control">
-
-<% @mentees.each do |tiementee| %>				
+				<% @mentees.each do |tiementee| %>
 				<% mentee = Student.find(tiementee.student_id) %>
-				<option value="<%= mentee.id %>"><%= mentee.name %></option>
+				<a class="btn btn-primary" href="mailto: <%= mentee.email %>">
+
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp
+
+					<%= mentee.name %>
+
+				</a>
+
 				<% end %>
 
-			</select>
-
-			<br/>
-
-			<div class="form-group">
-				<input type="text" class="form-control " placeholder="Subject">
 			</div>
-			<div class="form-group">
-				<textarea class="form-control " placeholder="Your Message" style="height:100px"></textarea>
-			</div>
-
-			<a href="#" class="btn btn-primary  btn-lg" id="send" role="button">SEND</a>
 
 			<% end %>
 
-		-->
-		</div>
-		<div class="row" style="margin:5px 4px 5px 4px">
-			<h1>Recent updates </h1>
-			<div class="thumbnail">
-				<img src="/assets/images/det_pic.jpg" alt="...">
-				<div class="caption">
-					<h3>Thumbnail label</h3>
-					<p>...</p>
-					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-				</div>
-			</div>
-
-			<div class="thumbnail">
-				<img src="/assets/images/det_pic.jpg" alt="...">
-				<div class="caption">
-					<h3>Thumbnail label</h3>
-					<p>...</p>
-					<p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
-				</div>
-			</div>
-
 		</div>
 
-	</div>
+		<div class="well">
+			<h2>Recent Updates</h2>
+			<div class="list-group">
+				<a href="/assets/images/bro.pdf" class="list-group-item" target="_blank">Brochure</a>
+				<a href="#" class="list-group-item">Website Coming Soon</a>
+				<a href="#" class="list-group-item">Website Coming Soon</a>
+				<a href="#" class="list-group-item">Website Coming Soon</a>
+			</div>
+		</div>
+	</div><!-- col-md-6 ends-->
 
 	<div class="col-md-3">
 
 		<% if @mentees.length == 0 %>
 
-		<h1 class="center"> No mentees allotted yet! </h1>
+		<h3 class="center"> Mentees will be alloted soon! </h3>
 
 		<% else %>
 
@@ -143,38 +99,10 @@ ul.nav-pills li{
 					<td><%= mentee.department %> | <%= mentee.hall %></td>
 					<td><%= mentee.joinyear %></td>					
 				</tr>
-<!--
-		<hr/>
-	
-		<h2><%= mentee.name %></h2>
 
-		<br/>
-		<div style="font-size: 25px; ">
-			
-			<p class="pull-left"><%= mentee.joinyear %></p>
-			<p class="pull-right"><%= mentee.department %> | <%= mentee.hall %></p>
-
-		</div>
-	-->
-
-	<% end %>
-</tbody>
-</table>
-<% end %>
-
-<div class="newsfeed" style="border-radius: 1px; background-color: rgba(0, 0, 0, 0.2); padding-left: 5px; padding-right: 5px;">
-	<br/>
-	<h2 class="center">Newsfeed</h2>
-	<hr/>
-	<span>Something here</span> 
-	<hr/>
-	<span>Something related here</span> 
-	<hr/>
-	<span>This text can have <a>links</a> too</span> 
-	<hr/>
-	<span>Website Coming Soon!</span> 
-
-</div>
-
-</div>	
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div><!-- col-md-3 ends-->
 </div>
