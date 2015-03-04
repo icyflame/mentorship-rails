@@ -38,7 +38,9 @@
       </div>
       <div class="field">
         <%= f.label :hall %><br />
-        <%= f.text_field :hall %>
+        <select name="mentor[hall]" class="form-control">
+          <%= render 'sharedviews/halls' %>
+        </select>
       </div>
       <div class="field">
         <%= f.label :firm %><br />
