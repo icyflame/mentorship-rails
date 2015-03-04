@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 20150226164801) do
     t.string   "last_sign_in_ip"
     t.string   "phone"
     t.string   "skypename"
-    t.text     "preference"
     t.text     "preference1"
     t.text     "preference2"
     t.text     "preference3"
